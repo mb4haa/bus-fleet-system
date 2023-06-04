@@ -44,7 +44,7 @@ php artisan serve
 
 ![alt text](Login.png)
 
-3. Copy the token supplied in the http response. For the first API which retrieves all free seats between 2 stops, the URI is http://localhost:8000/api/available/1/4 where 2:`Cairo` is the start and 4:`Asyut` is the destination. In the Authorization tab in Thunder Client, select Bearer Token and insert the access token into the field. If a wrong token is used, the API call will attempt to redirect to the login screen (Does not exist in our context xD).
+3. Copy the token supplied in the http response. For the first API which retrieves all free seats between 2 stops, the URI is http://localhost:8000/api/available/1/4 where 1:`Cairo` is the start and 4:`Asyut` is the destination. In the Authorization tab in Thunder Client, select Bearer Token and insert the access token into the field. If a wrong token is used, the API call will attempt to redirect to the login screen (Does not exist in our context xD).
 
 ![alt text](Available.png)
 
@@ -53,7 +53,7 @@ php artisan serve
 For now the data is manually inserted. This call in plain English attempts to book for the authenticated user in a trip containing the start station and end station in their correct order from AlFayyum (2), to AlMinya (3), the seat number 1. Sending the same API call again will return an error that the seats are already booked.
 
 ![alt text](Reserve.png)
-![alt text](AvaailableAfterReserving.png)
+![alt text](AvailableAfterReserving.png)
 
 ## Admin APIs
 
