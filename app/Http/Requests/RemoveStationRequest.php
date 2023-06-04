@@ -23,7 +23,7 @@ class RemoveStationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id'=>'required|integer|max:255|exists:trip_stations',
+            'id'=>'required|integer|max:255|exists:stations',
         ];
     }
 }

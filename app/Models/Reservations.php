@@ -19,6 +19,6 @@ class Reservations extends Model
         'user_id',
         'start_station_id',
         'end_station_id',
-        'seat_number',
+        'seat_num',
     ];
 }

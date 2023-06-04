@@ -23,8 +23,8 @@ class CreateTripStationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'trip_id'=>'required|integer|max:255|exists:bus_trips',
-            'station_id'=>'required|integer|exists:stations',
+            'trip_id'=>'required|integer|max:255|exists:bus_trips,id',
+            'station_id'=>'required|integer|exists:stations,id',
             'station_order'=>'required|integer'
         ];
     }

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\BusTripController;
+use App\Http\Controllers\ReservationsController;
 use App\Http\Controllers\StationController;
+use App\Http\Controllers\StationSeatController;
 use App\Http\Controllers\TripStationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,9 +26,13 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::middleware(['auth:sanctum', 'auth.role:admin'])->group(function () {
     Route::post('/addStation', [StationController::class, 'add']);
     Route::delete('/removeStation', [StationController::class, 'remove']);
-    Route::post('/addTripStation', [TripStationController::class, 'add']);
-    Route::delete('/removeTripStation', [TripStationController::class, 'remove']);
     Route::post('/addBusTrip', [BusTripController::class, 'add']);
     Route::delete('/removeBusTrip', [BusTripController::class, 'remove']);
+    Route::post('/addTripStation', [TripStationController::class, 'add']);
+    Route::delete('/removeTripStation', [TripStationController::class, 'remove']);
 });
 
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/available/{start}/{end}', [ReservationsController::class, 'available']);
+    Route::post('/reserve/{source}/{destination}/{seatId}', [ReservationsController::class, 'reserve']);
+});
